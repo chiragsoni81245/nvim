@@ -30,4 +30,11 @@ vim.opt.updatetime = 50
 
 --vim.opt.colorcolumn = "80"
 
+-- Spelling Checker
+vim.opt.spell = true
+vim.opt_local.spelllang = "en"
+
+vim.opt.foldenable = true
+vim.opt.foldmethod = "indent"
+
 vim.g.mapleader = " "
