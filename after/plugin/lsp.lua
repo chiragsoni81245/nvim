@@ -22,5 +22,12 @@ lsp.setup_nvim_cmp({
 
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+require('lspconfig').tsserver.setup {
+    init_options = {
+        preferences = {
+            disableSuggesions = true
+        }
+    }
+}
 
 lsp.setup()
