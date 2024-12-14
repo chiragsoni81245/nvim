@@ -54,4 +54,7 @@ return require('packer').startup(function(use)
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
     })
+    use 'wbthomason/packer.nvim' -- Packer can manage itself
+    use 'mg979/vim-visual-multi' -- Add vim-visual-multi plugin
+    use 'lukas-reineke/indent-blankline.nvim'
 end)
