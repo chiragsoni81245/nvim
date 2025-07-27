@@ -13,9 +13,9 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
-    use({ 
-        'folke/tokyonight.nvim', 
-        as = 'tokyonight', 
+    use({
+        'folke/tokyonight.nvim',
+        as = 'tokyonight',
         config = function()
             vim.cmd('colorscheme tokyonight-night')
         end
@@ -30,7 +30,6 @@ return require('packer').startup(function(use)
 --    })
 
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-    use('nvim-treesitter/playground')
     use('ThePrimeagen/harpoon')
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
