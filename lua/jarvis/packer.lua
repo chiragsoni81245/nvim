@@ -8,8 +8,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.3',
-        -- or                            , branch = '0.1.x',
+        'nvim-telescope/telescope.nvim', tag = '0.1.8',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
@@ -20,15 +19,6 @@ return require('packer').startup(function(use)
             vim.cmd('colorscheme tokyonight-night')
         end
     })
-
---    use({ 
---        'rose-pine/neovim', 
---        as = 'rose-pine', 
---        config = function()
---            vim.cmd('colorscheme rose-pine')
---        end
---    })
-
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('ThePrimeagen/harpoon')
     use('mbbill/undotree')
@@ -36,7 +26,7 @@ return require('packer').startup(function(use)
     use('prettier/vim-prettier')
     use {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
+        branch = 'v4.x',
         requires = {
             -- LSP Support
             {'neovim/nvim-lspconfig'},             -- Required
@@ -53,7 +43,6 @@ return require('packer').startup(function(use)
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
     })
-    use 'wbthomason/packer.nvim' -- Packer can manage itself
     use 'mg979/vim-visual-multi' -- Add vim-visual-multi plugin
     use 'lukas-reineke/indent-blankline.nvim'
 end)

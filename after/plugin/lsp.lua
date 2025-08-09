@@ -1,4 +1,4 @@
-local lsp = require('lsp-zero').preset({})
+local lsp = require('lsp-zero')
 
 lsp.on_attach(function(client, bufnr)
 	-- see :help lsp-zero-keybindings
@@ -9,14 +9,14 @@ end)
 
 local cmp = require("cmp")
 local cmp_select = {behaviour = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
+local cmp_mappings = lsp.default_keymaps({
 	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
 	['<C-y>'] = cmp.mapping.confirm({select = true}),
 	['<C-Space>'] = cmp.mapping.complete(),
 })
 
-lsp.setup_nvim_cmp({
+lsp.extend_cmp({
 	mapping = cmp_mappings
 })
 
