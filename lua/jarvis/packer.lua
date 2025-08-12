@@ -45,4 +45,10 @@ return require('packer').startup(function(use)
     })
     use 'mg979/vim-visual-multi' -- Add vim-visual-multi plugin
     use 'lukas-reineke/indent-blankline.nvim'
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
 end)
