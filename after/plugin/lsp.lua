@@ -31,11 +31,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- These are just examples. Replace them with the language
--- servers you have installed in your system
-require('lspconfig').gleam.setup({})
-require('lspconfig').rust_analyzer.setup({})
-
 local cmp = require('cmp')
 
 cmp.setup({
@@ -60,12 +55,27 @@ require('mason-lspconfig').setup({
   ensure_installed = {'lua_ls', 'gopls'},
   handlers = {
     function(server_name)
-      require('lspconfig')[server_name].setup({})
+      if server_name == "gopls" then
+        require('lspconfig')[server_name].setup({
+            settings = {
+                gopls = {
+                    analyses = { unusedparams = true },
+                    staticcheck = true,
+                    gofumpt = true,
+                },
+            },
+            flags = {
+                debounce_text_changes = 150, -- lower delay for updates
+            },
+        })
+      else
+        require('lspconfig')[server_name].setup({})
+      end
     end,
   }
 })
 
-local cmp = require('cmp')
+cmp = require('cmp')
 
 cmp.setup({
   sources = {
@@ -89,7 +99,7 @@ cmp.setup({
 
     -- scroll up and down the documentation window
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-d>'] = cmp.mapping.scroll_docs(4),   
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
 
     -- Use enter to confirm completion
     ['<CR>'] = cmp.mapping.confirm({select = false}),
@@ -97,20 +107,4 @@ cmp.setup({
     -- Invoke completion menu manually via <C-Space>
     ['<C-Space>'] = cmp.mapping.complete(),
   }),
-})
-
-
-
--- Language Specific LSP Configurations
-
-lspconfig.gopls.setup({
-  settings = {
-    gopls = {
-      analyses = {
-        unusedparams = true,
-      },
-      staticcheck = true,
-      gofumpt = true,
-    },
-  },
 })
