@@ -52,7 +52,7 @@ require('mason-lspconfig').setup({
   -- Replace the language servers listed here
   -- with the ones you want to install
   automatic_enable = true,
-  ensure_installed = {'lua_ls', 'gopls'},
+  ensure_installed = {'lua_ls'},
   handlers = {
     function(server_name)
       if server_name == "gopls" then
