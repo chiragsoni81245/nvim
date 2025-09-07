@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.o.mouse = ""
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("x", "<leader>p", "\"_dp")
