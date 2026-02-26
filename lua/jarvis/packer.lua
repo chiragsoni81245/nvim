@@ -8,7 +8,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.8',
+        'nvim-telescope/telescope.nvim', tag = 'v0.2.1',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
             vim.cmd('colorscheme tokyonight-night')
         end
     })
-    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use('nvim-treesitter/nvim-treesitter', {tag = 'v0.10.0', run = ':TSUpdate'})
     use('ThePrimeagen/harpoon')
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
