@@ -19,9 +19,6 @@ end, { desc = 'Refresh diagnostic list and show error in current line' })
 -- Close a nvim window with Ctrl+d
 vim.keymap.set("n", "<C-d>", "<C-w>c")
 
--- Escape terminal window using ESC
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
-
 vim.api.nvim_create_autocmd('TermOpen', {
     group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
     callback = function()
