@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
             vim.cmd('colorscheme tokyonight-night')
         end
     })
-    use('nvim-treesitter/nvim-treesitter', {tag = 'v0.10.0', run = ':TSUpdate'})
+    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('ThePrimeagen/harpoon')
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
@@ -51,4 +51,5 @@ return require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
+    use { 'Cannon07/claude-preview.nvim' }
 end)
