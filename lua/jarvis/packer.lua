@@ -12,13 +12,30 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
-    use({
-        'folke/tokyonight.nvim',
-        as = 'tokyonight',
+    -- use({
+    --     'folke/tokyonight.nvim',
+    --     as = 'tokyonight',
+    --     config = function()
+    --         vim.cmd('colorscheme tokyonight-night')
+    --     end
+    -- })
+    use {
+        "mofiqul/vscode.nvim",
+        lazy = false,
+        priority = 1000,   -- load before other plugins
         config = function()
-            vim.cmd('colorscheme tokyonight-night')
-        end
-    })
+            require("vscode").setup({
+                style = "dark",             -- or "light"
+                transparent = false,
+                italic_comments = true,
+                italic_inlayhints = true,
+                underline_links = true,
+                terminal_colors = true,
+            })
+            vim.cmd.colorscheme("vscode")
+        end,
+    }
+
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('ThePrimeagen/harpoon')
     use('mbbill/undotree')
