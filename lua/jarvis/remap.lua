@@ -41,18 +41,3 @@ vim.keymap.set('n', '<leader>wh', '<C-w>h', { desc = "Move to left window", nore
 vim.keymap.set('n', '<leader>wl', '<C-w>l', { desc = "Move to right window", noremap = true, silent = true })
 vim.keymap.set('n', '<leader>wk', '<C-w>k', { desc = "Move to upper window", noremap = true, silent = true })
 vim.keymap.set('n', '<leader>wj', '<C-w>j', { desc = "Move to lower window", noremap = true, silent = true })
-
-
-local term = require("jarvis.claude_code")
-
-vim.keymap.set("n", "<leader>c+", function()
-  term.resize(5)
-end, { desc = "Increase terminal width", noremap = true, silent = true })
-
-vim.keymap.set("n", "<leader>c-", function()
-  term.resize(-5)
-end, { desc = "Decrease terminal width", noremap = true, silent = true })
-
-vim.keymap.set({ "n" }, "<leader>cc", function()
-  term.toggle()
-end, { desc = "Toggle terminal (right)", noremap = true, silent = true })
