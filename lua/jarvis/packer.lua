@@ -68,5 +68,4 @@ return require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
-    use { 'Cannon07/claude-preview.nvim' }
 end)
